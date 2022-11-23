@@ -1,6 +1,6 @@
 
 <template>
-    <h1>MovieDetail</h1>
+      <h1 class="">MovieDetail</h1>
   </template>
   
   

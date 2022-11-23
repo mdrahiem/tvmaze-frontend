@@ -6,4 +6,4 @@
 - [ ] Create store (if necessary)
 - [ ] Create unit tests
 - [ ] Create e2e tests
-- [ ] Implement design
+- [x] Tailwind setup
