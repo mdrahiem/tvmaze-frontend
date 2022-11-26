@@ -5,7 +5,7 @@
       <SearchForm />
     </div>
     <div class="max-w-7xl mx-auto">
-      <Carorsel :shows="showsData" />
+      <Carorsel :shows="shows" />
     </div>
   </main>
 </template>
@@ -14,5 +14,11 @@
 import Welcome from '../components/Welcome.vue'
 import Carorsel from '../components/Carorsel.vue';
 import SearchForm from '../components/SearchForm.vue';
-import { showsData } from '../mockData';
+import useFetchShows from '../composables/useFetchShows';
+import { getGenres } from '../utils/getGenres';
+import { ref } from 'vue';
+
+const { shows } = useFetchShows()
+// const genres = getGenres(data)
+
 </script>
