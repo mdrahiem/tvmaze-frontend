@@ -1,6 +1,6 @@
 <template>
   <div class="relative px-6 lg:px-8">
-    <div class="mx-auto max-w-3xl pt-20 pb-8 sm:pt-48 sm:pb-12">
+    <div class="mx-auto max-w-3xl pt-20 pb-8 sm:pt-48 sm:pb-3">
       <div>
         <div>
               <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Find your <span class="text-secondary">perfect show</span> for the evening</h1>
@@ -21,4 +21,7 @@
         </div>
       </div>
 </template>
+
+<script setup lang="ts">
+</script>
 

@@ -1,8 +1,12 @@
 <template>
   <main>
-    <Welcome />
-    <SearchForm />
-    <Carorsel />
+    <div>
+      <Welcome />
+      <SearchForm />
+    </div>
+    <div class="max-w-7xl mx-auto">
+      <Carorsel :shows="showsData" />
+    </div>
   </main>
 </template>
 
@@ -10,4 +14,5 @@
 import Welcome from '../components/Welcome.vue'
 import Carorsel from '../components/Carorsel.vue';
 import SearchForm from '../components/SearchForm.vue';
+import { showsData } from '../mockData';
 </script>

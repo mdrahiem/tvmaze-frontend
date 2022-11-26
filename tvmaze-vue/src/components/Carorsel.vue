@@ -1,7 +1,8 @@
 <template>
     <Carousel :settings="settings" :breakpoints="breakpoints">
-      <Slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item">{{ slide }}</div>
+      <Slide v-for="show in shows" :key="show.id">
+        <ShowItem :title="show.name ?? ''" :releaseYear="show.premiered ?? ''" :duration="show.averageRuntime ?? 0" :rating="show.rating?.average ?? 0" :image="show.image?.medium ?? ''" />
+        <!-- <div class="carousel__item">{{ slide }}</div> -->
       </Slide>
   
       <template #addons>
@@ -10,29 +11,118 @@
     </Carousel>
   </template>
   
-  <script lang="ts">
-  import { defineComponent, ref } from 'vue'
+  <script setup lang="ts">
   import { Carousel, Navigation, Slide } from 'vue3-carousel'
 
   import 'vue3-carousel/dist/carousel.css'
+import ShowItem from './ShowItem.vue';
+
+// Types/interfaces
+export interface Schedule {
+    time?: string | null;
+    days?: string[] | null;
+}
+
+export interface Rating {
+    average?: number | null;
+}
+
+export interface Country {
+    name?: string | null;
+    code?: string | null;
+    timezone?: string | null;
+}
+
+export interface Network {
+    id?: number | null;
+    name?: string | null;
+    country?: Country | null;
+    officialSite?: string | null;
+}
+
+export interface Country2 {
+    name?: string | null;
+    code?: string | null;
+    timezone?: string | null;
+}
+
+export interface WebChannel {
+    id?: number | null;
+    name?: string | null;
+    country?: Country2 | null;
+    officialSite?: string | null;
+}
+
+export interface DvdCountry {
+    name?: string | null;
+    code?: string | null;
+    timezone?: string | null;
+}
+
+export interface Externals {
+    tvrage?: number | null;
+    thetvdb?: number | null;
+    imdb?: string | null;
+}
+
+export interface Image {
+    medium?: string;
+    original?: string;
+}
+
+export interface Self {
+    href?: string;
+}
+
+export interface Previousepisode {
+    href?: string;
+}
+
+export interface Nextepisode {
+    href?: string;
+}
+
+export interface Links {
+    self?: Self;
+    previousepisode?: Previousepisode;
+    nextepisode?: Nextepisode;
+}
+
+export interface IShow {
+    id: number;
+    url?: string | null;
+    name?: string | null;
+    type?: string | null;
+    language?: string | null;
+    genres?: string[];
+    status?: string | null;
+    runtime?: number | null;
+    averageRuntime?: number | null;
+    premiered?: string | null;
+    ended?: string | null;
+    officialSite?: string | null;
+    schedule?: Schedule | null;
+    rating?: Rating | null;
+    weight?: number | null;
+    network?: Network | null;
+    webChannel?: WebChannel | null;
+    dvdCountry?: DvdCountry | null;
+    externals?: Externals | null;
+    image?: Image;
+    summary?: string | null;
+    updated?: number | null;
+    _links?: Links | null;
+}
 
 
-  export default defineComponent({
-    name: 'Breakpoints',
-    components: {
-      Carousel,
-      Slide,
-      Navigation,
-    },
-    data: () => ({
-      // carousel settings
-      settings: {
-        itemsToShow: 1,
-        snapAlign: 'center',
-      },
-      // breakpoints are mobile first
-      // any settings not specified will fallback to the carousel settings
-      breakpoints: {
+
+
+
+export interface IShows {
+  shows: IShow[]
+}
+
+const breakpoints = {
         // 700px and up
         700: {
           itemsToShow: 3.5,
@@ -43,9 +133,19 @@
           itemsToShow: 5,
           snapAlign: 'start',
         },
-      },
-    }),
-  })
+      }
+
+const settings ={
+        itemsToShow: 1,
+        snapAlign: 'center',
+      }
+      const {shows} = defineProps<IShows>()
+
+
+
+      
+
+
   </script>
 
 <style>
