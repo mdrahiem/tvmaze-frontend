@@ -4,8 +4,8 @@
       <Welcome />
       <SearchForm />
     </div>
-    <div class="max-w-7xl mx-auto my-20">
-      <div v-for="genre in state.genres">
+    <div class="max-w-7xl mx-auto">
+      <div v-for="genre in state.genres" class="my-24">
         <h3 class="text-3xl first-letter:text-secondary">{{genre}}</h3>
         <Carorsel :shows="moviesStore.shows.filter(show => show.genres?.includes(genre))" />
       </div>

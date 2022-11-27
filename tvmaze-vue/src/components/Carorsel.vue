@@ -1,14 +1,15 @@
 <template>
-  <Carousel :settings="settings" :breakpoints="breakpoints" ref="carousel">
+  <div class="relative">
+    <Carousel :settings="settings" :breakpoints="breakpoints" ref="carousel">
     <Slide v-for="show in shows" :key="show.id">
       <ShowItem :title="show.name ?? ''" :releaseYear="show.premiered?.split('-')[0] ?? ''" :duration="show.averageRuntime ?? 0" :rating="show.rating?.average ?? 0" :image="show.image?.medium ?? ''" />
-      <!-- <div class="carousel__item">{{ slide }}</div> -->
     </Slide>
 
   </Carousel>
-  <div>
-    <button @click="next">Next</button>
-    <button @click="prev">Prev</button>
+  <div class="absolute -top-8 right-0 flex gap-4" v-if="shows.length > 5">
+    <button @click="prev" class="rotate-180 bg-secondary w-8 h-8 rounded-full text-center flex justify-center items-center"><Chevron /></button>
+    <button @click="next" class=" bg-secondary w-8 h-8 rounded-full text-center flex justify-center items-center"><Chevron /></button>
+  </div>
   </div>
 </template>
   
@@ -18,6 +19,7 @@
   import ShowItem from './ShowItem.vue';
   import type { IShow } from '../types';
   import { ref } from 'vue'
+  import Chevron from '../assets/icons/Chevron.vue';
 
   const breakpoints = {
     // 700px and up
