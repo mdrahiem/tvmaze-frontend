@@ -4,7 +4,7 @@ export interface Schedule {
 }
 
 export interface Rating {
-  average?: number | null;
+  average: number | null;
 }
 
 export interface Country {
@@ -82,7 +82,7 @@ export interface IShow {
   ended?: string | null;
   officialSite?: string | null;
   schedule?: Schedule | null;
-  rating?: Rating | null;
+  rating: Rating | null;
   weight?: number | null;
   network?: Network | null;
   webChannel?: WebChannel | null;
