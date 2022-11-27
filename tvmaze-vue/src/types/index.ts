@@ -127,3 +127,8 @@ export interface IEpisode {
   summary: string;
   _links: Links;
 }
+
+export interface ISearch {
+  score: number;
+  show: IShow;
+}
