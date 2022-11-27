@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "pinia": "^2.0.26",
+    "pinia-plugin-persistedstate": "^3.0.0",
     "vue": "^3.2.41",
     "vue-router": "4",
     "vue3-carousel": "^0.2.5"

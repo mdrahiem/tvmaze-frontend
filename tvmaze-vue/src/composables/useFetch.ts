@@ -1,24 +1,17 @@
 import { ref, watch } from "vue";
-import { IShow } from "../types";
 
-const shows = ref<IShow[]>([]);
-
+const data = ref<any>(null);
 const isLoading = ref<boolean>(true);
-
 const hasError = ref<boolean>(false);
-
 const errorMessage = ref<string | null>(null);
+const baseURL = import.meta.env.API_URL;
 
-const url = ref("https://api.tvmaze.com/shows");
-
-const getShows = async (): Promise<IShow[]> => {
+const getShows = async (params: any) => {
   isLoading.value = true;
-
-  if (shows.value.length > 0) {
-    return shows.value;
+  if (data.value.length > 0) {
+    return data.value;
   }
-
-  const response = await fetch(url.value);
+  const response = await fetch(baseURL + params);
   if (!response.ok) {
     throw Error("Error from fetch composable");
   }
@@ -26,26 +19,26 @@ const getShows = async (): Promise<IShow[]> => {
   if (jsonResponse) {
     updateRefs(jsonResponse);
   }
+  watch(jsonResponse, (value) => updateRefs(value));
   return jsonResponse;
 };
 
-const updateRefs = (data: IShow[]) => {
+const updateRefs = (response: any) => {
   hasError.value = false;
   errorMessage.value = null;
-  shows.value = data;
+  data.value = response;
   isLoading.value = false;
 };
 
-const useFetchShows = () => {
-  getShows();
-  watch(url, getShows);
+const useFetch = (params: any) => {
+  getShows(params);
+  watch(params, getShows);
   return {
-    shows,
+    data,
     isLoading,
     hasError,
-    count: shows.value.length,
     errorMessage,
   };
 };
 
-export default useFetchShows;
+export default useFetch;

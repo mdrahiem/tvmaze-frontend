@@ -97,3 +97,7 @@ export interface IShow {
 export interface IShows {
   shows: IShow[];
 }
+
+export interface HomeState {
+  genres: string[];
+}

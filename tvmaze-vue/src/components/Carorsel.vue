@@ -1,21 +1,23 @@
 <template>
-  <Carousel :settings="settings" :breakpoints="breakpoints">
+  <Carousel :settings="settings" :breakpoints="breakpoints" ref="carousel">
     <Slide v-for="show in shows" :key="show.id">
-      <ShowItem :title="show.name ?? ''" :releaseYear="show.premiered ?? ''" :duration="show.averageRuntime ?? 0" :rating="show.rating?.average ?? 0" :image="show.image?.medium ?? ''" />
+      <ShowItem :title="show.name ?? ''" :releaseYear="show.premiered?.split('-')[0] ?? ''" :duration="show.averageRuntime ?? 0" :rating="show.rating?.average ?? 0" :image="show.image?.medium ?? ''" />
       <!-- <div class="carousel__item">{{ slide }}</div> -->
     </Slide>
 
-    <template #addons>
-      <Navigation />
-    </template>
   </Carousel>
+  <div>
+    <button @click="next">Next</button>
+    <button @click="prev">Prev</button>
+  </div>
 </template>
   
 <script setup lang="ts">
   import { Carousel, Navigation, Slide } from 'vue3-carousel'
   import 'vue3-carousel/dist/carousel.css'
   import ShowItem from './ShowItem.vue';
-  import type { IShow } from '../types'
+  import type { IShow } from '../types';
+  import { ref } from 'vue'
 
   const breakpoints = {
     // 700px and up
@@ -34,6 +36,16 @@
     itemsToShow: 1,
     snapAlign: 'center',
   }
+  const carousel = ref<typeof Carousel>()
+
+  function next() {
+    carousel.value?.next()
+  }
+
+  function prev() {
+    carousel.value?.prev()
+  }
+
   interface IShows {
     shows: IShow[]
   }

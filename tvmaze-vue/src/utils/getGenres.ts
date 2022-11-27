@@ -1,8 +1,9 @@
 import type { IShow } from "../types";
 
 export function getGenres(shows: IShow[]) {
-  if (typeof shows === "object") {
-    return shows.map((show) => show.genres);
+  if (shows.length > 0) {
+    const genres = shows.map((show) => show.genres).flat();
+    return [...new Set(genres)];
   }
   return [];
 }
