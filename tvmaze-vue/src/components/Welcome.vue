@@ -9,7 +9,7 @@
             Find your <span class="text-secondary">perfect show</span> for the
             evening
           </h1>
-          <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
+          <p class="mt-6 text-lg leading-8 text-gray-500 sm:text-center">
             Browse from hundreds of shows by genre and enjoy your favourite show
             online.
           </p>

@@ -7,7 +7,13 @@
 
     <div class="max-w-7xl mx-auto">
       <div v-if="searchResults.length > 0">
-        <p @click="handleClearResults()">Clear results</p>
+        <p class="text-center mt-4">
+          <span
+            @click="handleClearResults()"
+            class="underline cursor-pointer text-secondary"
+            >Clear results</span
+          >
+        </p>
         <div class="flex flex-wrap mt-16 justify-between gap-4">
           <ShowItem
             v-for="searchItem in searchResults"
