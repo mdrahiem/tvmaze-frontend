@@ -71,7 +71,7 @@ export interface Links {
 export interface IShow {
   id: number;
   url?: string | null;
-  name?: string | null;
+  name: string | null;
   type?: string | null;
   language?: string | null;
   genres: string[];
@@ -89,17 +89,13 @@ export interface IShow {
   dvdCountry?: DvdCountry | null;
   externals?: Externals | null;
   image?: Image;
-  summary?: string | null;
+  summary: string | null;
   updated?: number | null;
   _links?: Links | null;
 }
 
 export interface IShows {
   shows: IShow[];
-}
-
-export interface HomeState {
-  genres: string[];
 }
 
 export interface ShowItem {
@@ -109,4 +105,25 @@ export interface ShowItem {
   rating?: number;
   releaseYear: string;
   image: string;
+}
+
+export interface Show {
+  href: string;
+}
+
+export interface IEpisode {
+  id: number;
+  url: string;
+  name: string;
+  season: number;
+  number: number;
+  type: string;
+  airdate: string;
+  airtime: string;
+  airstamp: Date;
+  runtime: number;
+  rating: Rating;
+  image: Image;
+  summary: string;
+  _links: Links;
 }

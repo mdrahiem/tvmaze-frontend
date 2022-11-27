@@ -8,7 +8,7 @@ interface State {
   errorMessage: string | null;
 }
 
-export const useShows = defineStore("movies", {
+export const useShows = defineStore("shows", {
   state: (): State => ({
     shows: [],
     isLoading: true,
