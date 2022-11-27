@@ -2,7 +2,7 @@
   <div class="relative">
     <Carousel :settings="settings" :breakpoints="breakpoints" ref="carousel">
     <Slide v-for="show in shows" :key="show.id">
-      <ShowItem :title="show.name ?? ''" :releaseYear="show.premiered?.split('-')[0] ?? ''" :duration="show.averageRuntime ?? 0" :rating="show.rating?.average ?? 0" :image="show.image?.medium ?? ''" />
+      <ShowItem :showId="show.id" :title="show.name ?? ''" :releaseYear="show.premiered?.split('-')[0] ?? ''" :duration="show.averageRuntime ?? 0" :rating="show.rating?.average ?? 0" :image="show.image?.medium ?? ''" />
     </Slide>
 
   </Carousel>

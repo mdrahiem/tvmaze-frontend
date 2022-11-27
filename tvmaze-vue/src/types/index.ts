@@ -74,7 +74,7 @@ export interface IShow {
   name?: string | null;
   type?: string | null;
   language?: string | null;
-  genres?: string[];
+  genres: string[];
   status?: string | null;
   runtime?: number | null;
   averageRuntime?: number | null;
@@ -100,4 +100,13 @@ export interface IShows {
 
 export interface HomeState {
   genres: string[];
+}
+
+export interface ShowItem {
+  showId: number;
+  title: string;
+  duration: number;
+  rating?: number;
+  releaseYear: string;
+  image: string;
 }
