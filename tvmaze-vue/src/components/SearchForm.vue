@@ -11,7 +11,7 @@
               ($event.target as HTMLInputElement).value
             )
           "
-          id="search-dropdown"
+          id="search"
           class="block p-4 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-secondary focus:border-secondary dark:bg-primary-200 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
           placeholder=""
           required
@@ -38,6 +38,5 @@ const searchShowsStore = useSearchShows();
 
 async function handleSubmit() {
   searchShowsStore.searchShows(searchValue.value);
-  console.log(searchValue);
 }
 </script>

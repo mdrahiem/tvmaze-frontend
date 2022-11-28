@@ -56,12 +56,10 @@ const settings = {
 const carousel = ref<typeof Carousel>();
 
 function next() {
-  console.log("carousel next");
   carousel.value?.next();
 }
 
 function prev() {
-  console.log("carousel prevvvv");
   carousel.value?.prev();
 }
 
