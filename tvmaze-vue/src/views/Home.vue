@@ -2,7 +2,7 @@
   <main>
     <div>
       <Welcome />
-      <SearchForm v-model="searchValue" />
+      <SearchForm v-model="searchValue" :key="componentKey" />
     </div>
 
     <div class="max-w-7xl mx-auto">
@@ -56,6 +56,12 @@ import { ref } from "vue";
 import { useSearchShows } from "../store/useSearchShows";
 import ShowItem from "../components/ShowItem.vue";
 
+const componentKey = ref(0);
+
+const forceRerender = () => {
+  componentKey.value += 1;
+};
+
 const searchValue = ref<string>("");
 
 const searchShowsStore = useSearchShows();
@@ -80,5 +86,6 @@ const topShows = computed(() => {
 function handleClearResults() {
   searchValue.value = "";
   searchShowsStore.resetSearchResults();
+  forceRerender();
 }
 </script>
