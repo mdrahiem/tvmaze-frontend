@@ -1,11 +1,17 @@
 <template>
   <div
-    class="group relative border-2 cursor-pointer hover:rounded-2xl border-transparent hover:scale-100 transition-all scale-90"
-    :title="props.title" @click="handleItemClick(props.showId)">
+    class="group w-10/12 md:w-11/12 relative border-2 cursor-pointer hover:rounded-2xl border-transparent hover:scale-100 transition-all scale-100 md:scale-90"
+    :title="props.title"
+    @click="handleItemClick(props.showId)"
+  >
     <div
-      class="min-h-80 aspect-w-1 aspect-h-1 w-full rounded-2xl bg-primary group-hover:opacity-75 lg:aspect-none lg:h-80">
-      <img :src="props.image" :alt="props.title"
-        class="h-full w-full object-cover object-center lg:h-full lg:w-full   rounded-2xl" />
+      class="min-h-80 aspect-w-1 aspect-h-1 w-full rounded-2xl bg-primary group-hover:opacity-75 lg:aspect-none lg:h-80"
+    >
+      <img
+        :src="props.image"
+        :alt="props.title"
+        class="h-full w-full object-cover object-center lg:h-full lg:w-full rounded-2xl"
+      />
     </div>
     <div class="flex flex-col gap-3 mt-4">
       <div class="flex justify-between">
@@ -29,11 +35,11 @@
     </div>
   </div>
 </template>
-  
+
 <script setup lang="ts">
-import Heart from '../assets/icons/Heart.vue';
-import Clock from '../assets/icons/Clock.vue';
-import { useRouter } from 'vue-router';
+import Heart from "../assets/icons/Heart.vue";
+import Clock from "../assets/icons/Clock.vue";
+import { useRouter } from "vue-router";
 
 interface ShowItem {
   showId: number;
@@ -42,10 +48,10 @@ interface ShowItem {
   rating?: number;
   releaseYear: string;
   image: string;
-};
-const props = defineProps<ShowItem>()
-const router = useRouter()
+}
+const props = defineProps<ShowItem>();
+const router = useRouter();
 function handleItemClick(showId: number) {
-  router.push(`/show-details/${showId}`)
+  router.push(`/show-details/${showId}`);
 }
 </script>

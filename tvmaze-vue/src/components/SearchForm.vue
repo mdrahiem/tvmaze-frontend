@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <div class="flex">
-      <div class="relative w-full max-w-2xl mx-auto">
+      <div class="relative w-5/6 md:w-full max-w-2xl mx-auto">
         <input
           type="text"
           v-model="searchValue"
@@ -13,7 +13,7 @@
           "
           id="search"
           class="block p-4 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-secondary focus:border-secondary dark:bg-primary-200 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-          placeholder=""
+          placeholder="Enter show name to search"
           required
         />
         <button

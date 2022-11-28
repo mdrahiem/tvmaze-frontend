@@ -5,7 +5,7 @@
       <SearchForm v-model="searchValue" :key="componentKey" />
     </div>
 
-    <div class="max-w-7xl mx-auto">
+    <div class="px-6 md:px-0 max-w-7xl mx-auto">
       <div v-if="searchResults.length > 0">
         <p class="text-center mt-4">
           <span
@@ -14,7 +14,9 @@
             >Clear results</span
           >
         </p>
-        <div class="flex flex-wrap mt-16 justify-between gap-4">
+        <div
+          class="flex flex-wrap mt-16 justify-center md:justify-between gap-4"
+        >
           <ShowItem
             v-for="searchItem in searchResults"
             :showId="searchItem.show.id"
@@ -27,11 +29,11 @@
         </div>
       </div>
       <div v-else>
-        <div class="my-24">
+        <div class="my-12 md:my-24">
           <h3 class="text-3xl first-letter:text-secondary">Top shows</h3>
           <Carorsel :shows="topShows" />
         </div>
-        <div v-for="genre in genres" class="my-24">
+        <div v-for="genre in genres" class="my-12 md:my-24">
           <h3 class="text-3xl first-letter:text-secondary">{{ genre }}</h3>
           <Carorsel
             :shows="

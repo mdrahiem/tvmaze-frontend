@@ -37,12 +37,14 @@ import type { IShow } from "../types";
 import { ref } from "vue";
 import Chevron from "../assets/icons/Chevron.vue";
 const breakpoints = {
-  // 700px and up
+  400: {
+    itemsToShow: 1,
+    snapAlign: "center",
+  },
   700: {
     itemsToShow: 3.5,
     snapAlign: "center",
   },
-  // 1024 and up
   1024: {
     itemsToShow: 5,
     snapAlign: "start",
@@ -97,6 +99,12 @@ const { shows } = defineProps<IShows>();
   display: flex;
   margin: 0;
   padding: 0;
+  margin-top: 20px;
   position: relative;
+}
+@media only screen and (min-width: 400px) {
+  .carousel__track {
+    margin-top: 0px;
+  }
 }
 </style>

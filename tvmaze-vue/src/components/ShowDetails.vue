@@ -1,12 +1,12 @@
 <template>
-  <div class="max-w-7xl mx-auto mt-10">
+  <div class="px-4 md:px-0 max-w-7xl mx-auto mt-6 md:mt-10">
     <router-link to="/">
       <div class="mb-6 font-light flex items-center">
         <span class="rotate-180"><Chevron /></span>
         Back
       </div>
     </router-link>
-    <div class="flex mt-10 mb-0 leading-6">
+    <div class="flex mt-2 md:mt-10 leading-6 flex-col md:flex-row">
       <img
         class="block object-cover mr-20 max-w-full align-middle rounded-3xl"
         height="720"
@@ -14,7 +14,7 @@
         :title="showDetails.name ?? ''"
         :src="showDetails.image?.original"
       />
-      <div class="">
+      <div class="mt-6 md:mt-6">
         <h1 class="text-6xl font-light text-secondary">
           {{ showDetails.name }}
         </h1>

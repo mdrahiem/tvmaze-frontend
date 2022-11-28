@@ -1,9 +1,5 @@
 <template>
-  <main>
-    <ShowDetails v-if="showDetails" :showDetails="showDetails" />
-
-    <!-- <div v-for="episodes" -->
-  </main>
+  <ShowDetails v-if="showDetails" :showDetails="showDetails" />
 </template>
 
 <script setup lang="ts">
