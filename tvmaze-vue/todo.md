@@ -8,7 +8,7 @@
 - [x] Search results
 - [x] Top shows based on rating
 - [x] Show details page
-- [ ] Make app responsive
+- [x] Make app responsive
 - [x] Create unit tests
 - [ ] Create e2e tests
 - [ ] Make components lazy load
